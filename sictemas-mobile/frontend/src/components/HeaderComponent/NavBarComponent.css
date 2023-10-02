@@ -1,0 +1,36 @@
+.navBar {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 50px;
+    justify-content: space-between;
+}
+
+.logoContainer {
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.mainNavigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainNavigation > Link > * {
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    color: var(--ast-global-color-0);
+    transition: all 0.4s ease-in-out;
+}
+
+.mainNavigation > Link > div:hover {
+    font-size: 16px;
+    color: var(--ast-global-color-5);
+    background-color: var(--ast-global-color-0);
+}
