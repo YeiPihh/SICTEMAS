@@ -20,7 +20,7 @@
     justify-content: center;
 }
 
-.mainNavigation > Link > * {
+.mainNavigation .menuItem {
     font-size: 14px;
     justify-content: center;
     align-items: center;
