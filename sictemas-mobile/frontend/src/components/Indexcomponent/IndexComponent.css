@@ -1,14 +1,76 @@
+@keyframes rotation_481 {
+    0% {
+      transform: rotateZ(0deg);
+    }
+  
+    0% {
+      transform: rotateZ(360deg);
+    }
+  }
+
 #ticketContainer {
-    margin: auto;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tittleTicket {
+    margin-bottom: 20px;
+}
+
+.tittleTicket h1 {
+    margin: 0;
+    padding: 5px;
+    letter-spacing: 10px;
+    font-size: 45px;
+    color: #fff;
+    text-align: center;
+    border-bottom: 2px solid #000;
+    text-shadow: 2px 2px 4px #000;
+
 }
 
 #ticketForm {
+    position: relative;
     margin: auto;
     display:grid;
     width: 800px;
-    padding: 30px;
+    padding: 50px 30px;
     border-radius: 10px;
-    background-color: #161616;
+    background-color: var(--ast-global-color-0);
+    box-sizing:border-box;
+    box-shadow: 0px 0px 15px 2px #000000ee;
+}
+
+/* .back {
+    justify-content: center;
+    display: grid;
+    align-items: center;
+    align-self: center;
+    position: absolute;
+    width: 810px;
+    height: 454px;
+    border-radius: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+  
+  .back::before {
+    position: absolute;
+    left: 50%;
+    content: ' ';
+    display: block;
+    width: 300px;
+    height: 10000px;
+    background: linear-gradient(100deg, transparent, #fff, #fff, #fff, #fff, transparent);
+    animation: rotation_481 5000ms infinite linear;
+} */
+
+#inputArea {
+    box-sizing: border-box;
 }
 
 #inputArea div .text {
@@ -17,17 +79,30 @@
 
 #inputArea input {
     width: 100%;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    padding: 7px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    padding: 10px;
     margin-top: 5px;
     background-color: #e4e3e3;
     outline: none;
     border: none;
+    max-width: calc(100% - 20px);
+    box-shadow: 0px 1px 5px 1px #000000ee;
+    transition: all .3s ease-in-out;
 }
-#inputArea input:focus {
+#inputArea input {
     border: none;
     outline: none;
+}
+
+.focused input {
+    transform: scale(1.03);
+}
+
+.text {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 18px;
 }
 
 .companyProjectContainer {
@@ -47,6 +122,19 @@
 
 .endDateContactContainer > div {
     width: 40%;
+}
+
+#submitButtonTicket {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform .2s ease-in-out;
+}
+
+#submitButtonTicket:hover {
+    transform: scale(1.05);
 }
 
 
