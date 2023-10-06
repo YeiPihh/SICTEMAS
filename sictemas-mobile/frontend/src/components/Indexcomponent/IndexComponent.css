@@ -1,0 +1,54 @@
+#ticketContainer {
+    margin: auto;
+}
+
+#ticketForm {
+    margin: auto;
+    display:grid;
+    width: 800px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #161616;
+}
+
+#inputArea div .text {
+    color: white;
+}
+
+#inputArea input {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 7px;
+    margin-top: 5px;
+    background-color: #e4e3e3;
+    outline: none;
+    border: none;
+}
+#inputArea input:focus {
+    border: none;
+    outline: none;
+}
+
+.companyProjectContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.companyProjectContainer > div {
+    width: 40%;
+}
+.endDateContactContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.endDateContactContainer > div {
+    width: 40%;
+}
+
+
+
+
