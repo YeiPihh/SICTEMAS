@@ -22,7 +22,7 @@ const IndexComponent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        
 
     };
 
@@ -41,10 +41,8 @@ const IndexComponent = () => {
 
                     <div id="descriptionContainer" className={`form-inp ${isFocused==='input2' ? "focused" : ""}`}>
                     <div className="text">Descripcion de la incidencia</div>
-                        <input placeholder="Descripcion de la incidencia" type="text" id="description" required value={description} onChange={e => setDescription(e.target.value)} onFocus={() => handleFocus('input2')} onBlur={handleBlur} />
+                        <input placeholder="Describe tu problema con pocas palabras" type="text" id="description" required value={description} onChange={e => setDescription(e.target.value)} onFocus={() => handleFocus('input2')} onBlur={handleBlur} />
                     </div>
-
-                    
 
                     <div className="companyProjectContainer"> 
                         <div id="companyContainer" className={`form-inp ${isFocused==='input3' ? "focused" : ""}`}>
@@ -52,16 +50,16 @@ const IndexComponent = () => {
                             <input placeholder="Nombre de tu compañia" type="text" id="company" required value={company} onChange=  {e => setCompany(e.target.value)} onFocus={() => handleFocus('input3')} onBlur={handleBlur} />
                         </div>
 
-                        <div id="projectContainer" className="form-inp">
+                        <div id="projectContainer" className="form-inp noType">
                             <div className="text">Proyecto</div>
-                            <input placeholder="" type="text" id="project" required value={project} onChange={e => setProject(e.    target.value)} onFocus={() => handleFocus('input4')} onBlur={handleBlur} readOnly />
+                            <input alt="Este campo se autorrellenará" placeholder="---" type="text" id="project" required value={project} onChange={e => setProject(e.    target.value)} onFocus={() => handleFocus('input4')} onBlur={handleBlur} readOnly />
                         </div>
                     </div>
                     
                     <div className="endDateContactContainer">
-                        <div id="endDateContainer" className="form-inp">
+                        <div id="endDateContainer" className="form-inp noType">
                             <div className="text">Plazo de atencion</div>
-                            <input placeholder="" type="text" id="endDate" required value={endDate} onChange={e => setEndDate(e.target.value)} onFocus={() => handleFocus('input5')} onBlur={handleBlur} readOnly />
+                            <input alt="Este campo se autorrellenará" placeholder="---" type="text" id="endDate" required value={endDate} onChange={e => setEndDate(e.target.value)} onFocus={() => handleFocus('input5')} onBlur={handleBlur} readOnly />
                         </div>
 
                         <div id="contactContainer" className={`form-inp ${isFocused==='input6' ? "focused" : ""}`}>
