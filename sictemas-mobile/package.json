@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  },
+  "scripts": {
+    "start": "concurrently \"yarn run start-frontend\" \"yarn run start-backend\"",
+    "start-frontend": "cd frontend && yarn start",
+    "start-backend": "cd backend && yarn start"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mysql2": "^3.6.1",
+    "nodemailer": "^6.9.6",
+    "nodemon": "^3.0.1",
+    "sweetalert2": "^11.7.28"
+  }
+}

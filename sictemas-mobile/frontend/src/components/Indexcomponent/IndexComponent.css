@@ -16,10 +16,11 @@
     padding: 5px;
     letter-spacing: 10px;
     font-size: 45px;
-    color: #fff;
+    color: var(--ast-global-color-0);
     text-align: center;
     border-bottom: 2px solid #000;
-    text-shadow: 2px 2px 4px #000;
+    text-shadow: 3px 3px 4px #8b8b8b;
+    
 }
 
 #ticketForm::before {
@@ -31,10 +32,11 @@
     bottom: 0;
     left: 0;
     background-image: url(https://i.postimg.cc/J7JyYnvh/sictemas-Logo-No-BG.png);
-    opacity: 0.5;
+    opacity: 0.6;
     z-index: -1;
     background-position: center;
     background-repeat: no-repeat;
+    filter: saturate(2);
 }
 
 #ticketForm {
@@ -47,7 +49,7 @@
     /* background-color:  var(--ast-global-color-0); */
     background-color:  transparent;
     box-sizing:border-box;
-    box-shadow: 0px 0px 15px 4px #4b4b4b;
+    box-shadow: 0px 0px 15px 4px #1f1f1f;
 }
 
 #inputArea {
@@ -55,7 +57,7 @@
 }
 
 #inputArea div .text {
-    color: white;
+    color: #000000;
 }
 
 #inputArea input {
@@ -66,18 +68,16 @@
     margin-top: 5px;
     background-color: #e4e3e3;
     outline: none;
-    border: none;
     max-width: calc(100% - 20px);
-    box-shadow: 0px 1px 5px 4px #4b4b4b;
+    box-shadow: 3px 3px 5px 4px #8b8b8b;
     transition: all .3s ease-in-out;
-}
-#inputArea input {
-    border: none;
-    outline: none;
+    border: 1px solid #4b4b4b;
+    letter-spacing: 1px;
 }
 
+
 .focused input {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .text {
@@ -96,6 +96,21 @@
 .companyProjectContainer > div {
     width: 40%;
 }
+
+
+
+input#checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0 0 20px 5px;
+}
+
+#endDateContainer span {
+    margin-left: 8px ;
+    align-items: center;
+    justify-content: center;
+}
+ 
 .endDateContactContainer {
     display: flex;
     flex-direction: row;
@@ -112,8 +127,8 @@
 }
 
 #submitButtonTicket {
-    padding: 13px;
-    font-size: 22px;
+    padding: 10px 13px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 2px;
     cursor: pointer;

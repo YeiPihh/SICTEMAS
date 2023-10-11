@@ -10,6 +10,26 @@ const IndexComponent = () => {
     const [endDate, setEndDate] = useState(''); // esto se debe poner automaticamente al dia laborable siguiente de cuando se crea el ticket
     const [contact, setContact] = useState('');
     const [username, setUsername] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
+    const [timeLimit, setTimeLimit] = useState('24');
+
+    const today = new Date();  // Obtiene la fecha actual
+    const tomorrow = new Date(today);  // Crea una nueva instancia de Date con la fecha de hoy
+    tomorrow.setDate(today.getDate() + 1);
+
+    const formattedToday = `${today.getDate().toString().padStart(2, '0')}/${(today.getMonth() + 1).toString().padStart(2, '0')}/${today.getFullYear()}`;
+
+    const formattedTomorrow = `${tomorrow.getDate().toString().padStart(2, '0')}/${(tomorrow.getMonth() + 1).toString().padStart(2, '0')}/${tomorrow.getFullYear()}`;
+
+    const handleTimeLimit = (e) => {
+        setIsChecked(e.target.checked);
+        
+        if (isChecked) {
+            setTimeLimit('24')
+        } else {
+            setTimeLimit('4')
+        }
+    };
 
 
 
@@ -22,8 +42,30 @@ const IndexComponent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
 
+        const formData = {
+            username,
+            description,
+            company,
+            project,
+            formattedTomorrow,
+            contact
+        };
+
+        fetch('http://localhost:3001/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',  // Indica que estás enviando datos JSON
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
     };
 
     return (
@@ -52,14 +94,22 @@ const IndexComponent = () => {
 
                         <div id="projectContainer" className="form-inp noType">
                             <div className="text">Proyecto</div>
-                            <input alt="Este campo se autorrellenará" placeholder="---" type="text" id="project" required value={project} onChange={e => setProject(e.    target.value)} onFocus={() => handleFocus('input4')} onBlur={handleBlur} readOnly />
+                            <input value="01 Mantenimiento informatico" placeholder="---" type="text" id="project" required onChange={e => setProject(e.target.value)} onFocus={() => handleFocus('input4')} onBlur={handleBlur} readOnly />
                         </div>
                     </div>
                     
                     <div className="endDateContactContainer">
                         <div id="endDateContainer" className="form-inp noType">
-                            <div className="text">Plazo de atencion</div>
-                            <input alt="Este campo se autorrellenará" placeholder="---" type="text" id="endDate" required value={endDate} onChange={e => setEndDate(e.target.value)} onFocus={() => handleFocus('input5')} onBlur={handleBlur} readOnly />
+                            <div className="text">Fecha limite de atencion</div>
+                            <input alt="Este campo se autorrellenará" placeholder="---" type="text" id="endDate" required value={`${isChecked ? formattedToday : formattedTomorrow } (${timeLimit} horas)`} onFocus={() => handleFocus('input5')} onBlur={handleBlur} readOnly />
+                            
+                                <input
+                                  type="checkbox"
+                                  id="checkbox"
+                                  checked={isChecked}
+                                  onChange={handleTimeLimit}
+                                /> <span>Es urgente tu incidencia?</span>
+                            
                         </div>
 
                         <div id="contactContainer" className={`form-inp ${isFocused==='input6' ? "focused" : ""}`}>
